@@ -58,7 +58,7 @@ export default function Home() {
         <div className="search">
           <input type="text" placeholder="Search for abbreviation's here..." onKeyUp={onKeyUp} innerRef={inputRef} />
         </div>
-        <div className="grid">
+        <div className="list">
           <ul>
             {data.map((datum) => {
               return (
@@ -119,7 +119,6 @@ export default function Home() {
           list-style-type: none;
           display: flex;
           flex-direction: column;
-          width: 455px;
           padding: 0;
         }
 
@@ -133,13 +132,22 @@ export default function Home() {
           color: var(--secondary-text-color);
         }
 
-        .grid {
+        .list {
+          min-width: 100%;
+        }
+
+        .list ul {
+          width: 100%;
+          margin: 0 auto;
           display: flex;
-          align-items: center;
-          justify-content: center;
+          padding: 0;
           flex-wrap: wrap;
           max-width: 800px;
           margin-top: 0.8rem;
+        }
+
+        .list li {
+          width: 90%;
         }
 
         .card {
@@ -189,10 +197,10 @@ export default function Home() {
           color: var(--primary-text-color);
         }
 
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
+        @media (max-width: 480px) {
+          input,
+          ul {
+            max-width: 320px !important;
           }
         }
       `}</style>
