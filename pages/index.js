@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import useCopyToClipboard from './useCopyToClipboard';
 
 const sortFn = (a, b) => {
@@ -50,9 +51,30 @@ export default function Home() {
   return (
     <div className="container">
       <Head>
-        <title>Abbreviation's for people who is working from home (WFH)</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/icon.png" />
       </Head>
+      <NextSeo
+        title="Abbr's for people WFH"
+        description="Abbreviation's for people who is working from home."
+        canonical="https://wfh-abbrs.vercel.app"
+        openGraph={{
+          url: 'https://wfh-abbrs.vercel.app',
+          title: "Abbr's for people WFH",
+          description: "Abbreviation's for people who is working from home (WFH)",
+          images: [
+            {
+              url: 'https://wfh-abbrs.vercel.app/icon.png',
+              alt: "Abbr's for people WFH",
+            },
+          ],
+          site_name: "Abbr's for people WFH",
+        }}
+        twitter={{
+          handle: '@gokulkrishh',
+          site: '@vercel.app',
+          cardType: 'summary_large_image',
+        }}
+      />
 
       <h1>Abbreviation's for WFH</h1>
       <main>

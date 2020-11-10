@@ -1,4 +1,4 @@
-## Abbreviations you should know when you are 🏠 working from home (WFH).
+# Abbr's for people WFH 🏠
 
 ### [Live](https://wfh-abbrs.vercel.app/)
 
