@@ -1,5 +1,7 @@
 # Abbr's for people WFH 🏠
 
+### [Live](https://wfh-abbrs.vercel.app/)
+
 ## Installation
 
 ```bash
