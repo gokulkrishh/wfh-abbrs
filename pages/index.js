@@ -189,6 +189,7 @@ export default function Home() {
           border: 1px solid #eaeaea;
           border-radius: 10px;
           transition: color 0.15s ease, border-color 0.15s ease;
+          cursor: copy;
         }
 
         .card:hover,
