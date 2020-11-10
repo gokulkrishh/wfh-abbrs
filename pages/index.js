@@ -51,7 +51,7 @@ export default function Home() {
   return (
     <div className="container">
       <Head>
-        <link rel="icon" href="/icon.png" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <NextSeo
         title="Abbr's for people WFH"
@@ -63,7 +63,7 @@ export default function Home() {
           description: "Abbreviation's for people who is working from home (WFH)",
           images: [
             {
-              url: 'https://wfh-abbrs.vercel.app/icon.png',
+              url: 'https://wfh-abbrs.vercel.app/twitter.jpg',
               alt: "Abbr's for people WFH",
             },
           ],
