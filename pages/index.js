@@ -1,61 +1,48 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import list from './data';
 
 export default function Home() {
+  const data = list.sort((a, b) => {
+    const abbrA = a.abbr.toLowerCase();
+    const abbrB = b.abbr.toLowerCase();
+
+    if (abbrA > abbrB) {
+      return 1;
+    } else if (abbrA < abbrB) {
+      return -1;
+    }
+
+    return 0;
+  });
+
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>Abbreviation's for people who is working from home (WFH)</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
+        <div className="search">
+          <input type="text" placeholder="Search for abbreviation's here..." autoFocus />
+        </div>
         <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+          <ul>
+            {data.map((datum) => {
+              return (
+                <li className="card" key={datum.abbr}>
+                  <div className="search-data-left">{datum.desc}</div>
+                  <div className="search-data-right">{datum.abbr}</div>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </main>
 
       <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
+        <a href="https://github.com/gokulkrishh/wfh-abbreviations" target="_blank" rel="noopener noreferrer">
+          Send a pr if you know one
         </a>
       </footer>
 
@@ -80,15 +67,11 @@ export default function Home() {
 
         footer {
           width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
+          height: 45px;
+          border-top: 2px solid var(--secondary-bg-color);
           display: flex;
           justify-content: center;
           align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
         }
 
         footer a {
@@ -99,43 +82,24 @@ export default function Home() {
 
         a {
           color: inherit;
-          text-decoration: none;
         }
 
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
+        ul {
+          list-style-type: none;
+          display: flex;
+          flex-direction: column;
+          width: 455px;
+          padding: 0;
         }
 
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
+        li {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 10px;
         }
 
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
-
-        .title,
-        .description {
-          text-align: center;
-        }
-
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+        .search-data-left {
+          color: var(--secondary-text-color);
         }
 
         .grid {
@@ -145,7 +109,7 @@ export default function Home() {
           flex-wrap: wrap;
 
           max-width: 800px;
-          margin-top: 3rem;
+          margin-top: 1rem;
         }
 
         .card {
@@ -182,6 +146,19 @@ export default function Home() {
           height: 1em;
         }
 
+        input {
+          width: 460px;
+          height: 56px;
+          padding: 0 15px;
+          font-size: 18px;
+          font-weight: normal;
+          border-radius: 4px;
+          box-shadow: none;
+          border: 1px solid transparent;
+          background-color: var(--secondary-bg-color);
+          color: var(--primary-text-color);
+        }
+
         @media (max-width: 600px) {
           .grid {
             width: 100%;
@@ -191,13 +168,21 @@ export default function Home() {
       `}</style>
 
       <style jsx global>{`
+        :root {
+          --primary-bg-color: #121212;
+          --secondary-bg-color: #1f1f1f;
+          --primary-text-color: #fff;
+          --secondary-text-color: #7e7e7e;
+        }
+
         html,
         body {
           padding: 0;
           margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
             sans-serif;
+          background-color: var(--primary-bg-color);
+          color: var(--primary-text-color);
         }
 
         * {
@@ -205,5 +190,5 @@ export default function Home() {
         }
       `}</style>
     </div>
-  )
+  );
 }
