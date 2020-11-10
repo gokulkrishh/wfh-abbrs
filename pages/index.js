@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import useCopyToClipboard from './useCopyToClipboard';
 
 const sortFn = (a, b) => {
@@ -51,9 +52,32 @@ export default function Home() {
     <div className="container">
       <Head>
         <title>Abbreviation's for people who is working from home (WFH)</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/icon.png" />
+        <NextSeo
+          title="Abbr's for WFH"
+          description="Abbreviation's for people who is working from home."
+          canonical="https://wfh-abbrs.vercel.app"
+          openGraph={{
+            url: 'https://wfh-abbrs.vercel.app',
+            title: "Abbr's for WFH",
+            description: "Abbreviation's for people who is working from home (WFH)",
+            images: [
+              {
+                url: 'https://wfh-abbrs.vercel.app/icon.png',
+                alt: "Abbr's for WFH",
+              },
+            ],
+            site_name: "Abbr's for WFH",
+          }}
+          twitter={{
+            handle: '@gokulkrishh',
+            site: '@vercel.app',
+            cardType: 'summary_large_image',
+          }}
+        />
       </Head>
 
+      <h1>Abbreviation's for WFH</h1>
       <main>
         <div className="search">
           <input type="text" placeholder="Search for abbreviation's here..." onKeyUp={onKeyUp} innerRef={inputRef} />
@@ -87,13 +111,18 @@ export default function Home() {
           align-items: center;
         }
 
+        h1 {
+          margin-top: 30px;
+        }
+
         main {
-          padding: 5rem 0;
+          padding: 1rem 0;
           flex: 1;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          min-width: 520px;
         }
 
         footer {
@@ -126,6 +155,7 @@ export default function Home() {
           display: flex;
           justify-content: space-between;
           margin-bottom: 10px;
+          align-self: center;
         }
 
         .search-data-left {
@@ -143,7 +173,7 @@ export default function Home() {
           padding: 0;
           flex-wrap: wrap;
           max-width: 800px;
-          margin-top: 0.8rem;
+          margin-top: 1rem;
         }
 
         .list li {
@@ -185,7 +215,8 @@ export default function Home() {
         }
 
         input {
-          width: 460px;
+          max-width: 540px;
+          width: 540px;
           height: 56px;
           padding: 0 15px;
           font-size: 18px;
@@ -197,10 +228,23 @@ export default function Home() {
           color: var(--primary-text-color);
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 600px) and (min-width: 481px) {
+          main,
+          .list,
           input,
           ul {
-            max-width: 320px !important;
+            width: 450px !important;
+            max-width: 450px !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          main,
+          .list,
+          input,
+          ul {
+            width: 340px;
+            max-width: 340px !important;
           }
         }
       `}</style>
