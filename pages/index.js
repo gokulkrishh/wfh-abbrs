@@ -51,31 +51,30 @@ export default function Home() {
   return (
     <div className="container">
       <Head>
-        <title>Abbreviation's for people who is working from home (WFH)</title>
         <link rel="icon" href="/icon.png" />
-        <NextSeo
-          title="Abbr's for WFH"
-          description="Abbreviation's for people who is working from home."
-          canonical="https://wfh-abbrs.vercel.app"
-          openGraph={{
-            url: 'https://wfh-abbrs.vercel.app',
-            title: "Abbr's for WFH",
-            description: "Abbreviation's for people who is working from home (WFH)",
-            images: [
-              {
-                url: 'https://wfh-abbrs.vercel.app/icon.png',
-                alt: "Abbr's for WFH",
-              },
-            ],
-            site_name: "Abbr's for WFH",
-          }}
-          twitter={{
-            handle: '@gokulkrishh',
-            site: '@vercel.app',
-            cardType: 'summary_large_image',
-          }}
-        />
       </Head>
+      <NextSeo
+        title="Abbr's for people WFH"
+        description="Abbreviation's for people who is working from home."
+        canonical="https://wfh-abbrs.vercel.app"
+        openGraph={{
+          url: 'https://wfh-abbrs.vercel.app',
+          title: "Abbr's for people WFH",
+          description: "Abbreviation's for people who is working from home (WFH)",
+          images: [
+            {
+              url: 'https://wfh-abbrs.vercel.app/icon.png',
+              alt: "Abbr's for people WFH",
+            },
+          ],
+          site_name: "Abbr's for people WFH",
+        }}
+        twitter={{
+          handle: '@gokulkrishh',
+          site: '@vercel.app',
+          cardType: 'summary_large_image',
+        }}
+      />
 
       <h1>Abbreviation's for WFH</h1>
       <main>

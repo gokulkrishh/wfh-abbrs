@@ -1,4 +1,4 @@
-# Abbreviations for people who is working from home (WFH)
+# Abbr's for people WFH 🏠
 
 ## Installation
 
