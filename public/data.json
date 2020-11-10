@@ -1,0 +1,48 @@
+{
+  "data": [
+    {
+      "abbr": "BRB",
+      "desc": "Be right back"
+    },
+    {
+      "abbr": "LGTM",
+      "desc": "Looks good to me"
+    },
+    {
+      "abbr": "AFK",
+      "desc": "Away from keyboard"
+    },
+    {
+      "abbr": "WFM",
+      "desc": "Works for me"
+    },
+    {
+      "abbr": "IMO",
+      "desc": "In my opinion"
+    },
+    {
+      "abbr": "JK",
+      "desc": "Just kidding"
+    },
+    {
+      "abbr": "AFAIK",
+      "desc": "As far as i know"
+    },
+    {
+      "abbr": "IDK",
+      "desc": "I don't know"
+    },
+    {
+      "abbr": "EOD",
+      "desc": "End of day"
+    },
+    {
+      "abbr": "TLDL",
+      "desc": "Too long; didn't read"
+    },
+    {
+      "abbr": "DRY",
+      "desc": "Dont repeat yourself"
+    }
+  ]
+}

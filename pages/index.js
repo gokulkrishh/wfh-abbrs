@@ -1,19 +1,51 @@
+import { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
-import list from './data';
+import useCopyToClipboard from './useCopyToClipboard';
+
+const sortFn = (a, b) => {
+  const abbrA = a.abbr.toLowerCase();
+  const abbrB = b.abbr.toLowerCase();
+  if (abbrA > abbrB) {
+    return 1;
+  } else if (abbrA < abbrB) {
+    return -1;
+  }
+  return 0;
+};
 
 export default function Home() {
-  const data = list.sort((a, b) => {
-    const abbrA = a.abbr.toLowerCase();
-    const abbrB = b.abbr.toLowerCase();
+  const [data, setData] = useState([]);
+  const [_, setClipboard] = useCopyToClipboard();
+  const inputRef = useRef(null);
 
-    if (abbrA > abbrB) {
-      return 1;
-    } else if (abbrA < abbrB) {
-      return -1;
+  const fetchData = () => {
+    fetch('https://cdn.jsdelivr.net/gh/gokulkrishh/wfh-abbreviations/main/public/data.js')
+      .then((response) => response.json())
+      .then((response) => {
+        const sortedData = response.data.sort(sortFn);
+        setData(sortedData);
+      });
+  };
+
+  useEffect(() => {
+    inputRef.current?.focus();
+    fetchData();
+  }, []);
+
+  const onKeyUp = (event) => {
+    const value = event.target.value;
+
+    if (!value.length) {
+      fetchData();
+      return;
     }
 
-    return 0;
-  });
+    const searchText = String(value).toLowerCase();
+    const searchResult = data.filter(
+      ({ abbr, desc }) => abbr.toLowerCase().includes(searchText) || desc.toLowerCase().includes(searchText)
+    );
+    setData(searchResult);
+  };
 
   return (
     <div className="container">
@@ -24,13 +56,13 @@ export default function Home() {
 
       <main>
         <div className="search">
-          <input type="text" placeholder="Search for abbreviation's here..." autoFocus />
+          <input type="text" placeholder="Search for abbreviation's here..." onKeyUp={onKeyUp} innerRef={inputRef} />
         </div>
         <div className="grid">
           <ul>
             {data.map((datum) => {
               return (
-                <li className="card" key={datum.abbr}>
+                <li className="card" key={datum.abbr} onClick={() => setClipboard(datum.abbr)}>
                   <div className="search-data-left">{datum.desc}</div>
                   <div className="search-data-right">{datum.abbr}</div>
                 </li>
@@ -48,7 +80,6 @@ export default function Home() {
 
       <style jsx>{`
         .container {
-          min-height: 100vh;
           padding: 0 0.5rem;
           display: flex;
           flex-direction: column;
@@ -107,15 +138,14 @@ export default function Home() {
           align-items: center;
           justify-content: center;
           flex-wrap: wrap;
-
           max-width: 800px;
-          margin-top: 1rem;
+          margin-top: 0.8rem;
         }
 
         .card {
           margin: 1rem;
           flex-basis: 45%;
-          padding: 1.5rem;
+          padding: 1rem;
           text-align: left;
           color: inherit;
           text-decoration: none;

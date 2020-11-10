@@ -1,5 +1,5 @@
 {
-  "name": "learn-starter",
+  "name": "wfh-abbr",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "copy-to-clipboard": "^3.3.1",
     "next": "^10.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1"
