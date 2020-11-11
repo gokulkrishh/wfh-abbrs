@@ -2,7 +2,7 @@
 
 #### `Step 1`
 
-- Create a branch out of main branch.
+- Fork this repo and create a branch out of main branch.
 
 #### `Step 2`
 
@@ -12,5 +12,7 @@
   - `abbr` - Abbreviation
   - `desc` - Description for it.
 
+#### `Step 3` 
 
+- Create a pr from your branch 😁
 
