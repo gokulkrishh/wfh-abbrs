@@ -37,12 +37,32 @@
       "desc": "End of day"
     },
     {
-      "abbr": "TLDL",
+      "abbr": "TLDR",
       "desc": "Too long; didn't read"
     },
     {
       "abbr": "DRY",
       "desc": "Dont repeat yourself"
+    },
+    {
+      "abbr": "WAH",
+      "desc": "Work At Home"
+    },
+    {
+      "abbr": "OMW",
+      "desc": "On My Way"
+    },
+    {
+      "abbr": "OLT",
+      "desc": "Online Training"
+    },
+    {
+      "abbr": "IM",
+      "desc": "Instant Message"
+    },
+    {
+      "abbr": "IAM",
+      "desc": "In a Meeting"
     }
   ]
 }
