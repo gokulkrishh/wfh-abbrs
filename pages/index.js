@@ -76,7 +76,7 @@ export default function Home() {
       <h1>Abbreviation's for WFH</h1>
       <main>
         <div className="search">
-          <input type="text" placeholder="Search for abbreviation's here..." onKeyUp={onKeyUp} innerRef={inputRef} />
+          <input type="text" placeholder="Search here..." onKeyUp={onKeyUp} innerRef={inputRef} />
         </div>
         <div className="list">
           <ul>
