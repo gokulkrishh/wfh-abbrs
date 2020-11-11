@@ -20,8 +20,8 @@ export default function Home() {
   const inputRef = useRef(null);
 
   const fetchData = () => {
-    fetch('https://cdn.jsdelivr.net/gh/gokulkrishh/wfh-abbrs@main/data.json')
-      .then((response) => response.json())
+    fetch('/data.json')
+      .then(response => response.json())
       .then((response) => {
         const sortedData = response.data.sort(sortFn);
         setData(sortedData);
