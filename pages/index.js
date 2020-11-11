@@ -15,16 +15,18 @@ const sortFn = (a, b) => {
 };
 
 export default function Home() {
+  const [fullData, setFullData] = useState([]);
   const [data, setData] = useState([]);
   const [_, setClipboard] = useCopyToClipboard();
   const inputRef = useRef(null);
 
   const fetchData = () => {
-    fetch('https://cdn.jsdelivr.net/gh/gokulkrishh/wfh-abbrs@main/data.json')
-      .then((response) => response.json())
+    fetch('/data.json')
+      .then(response => response.json())
       .then((response) => {
         const sortedData = response.data.sort(sortFn);
         setData(sortedData);
+        setFullData(sortedData);
       });
   };
 
@@ -35,16 +37,11 @@ export default function Home() {
 
   const onKeyUp = (event) => {
     const value = event.target.value;
-
-    if (!value.length) {
-      fetchData();
-      return;
-    }
-
     const searchText = String(value).toLowerCase();
-    const searchResult = data.filter(
+    const searchResult = fullData.filter(
       ({ abbr, desc }) => abbr.toLowerCase().includes(searchText) || desc.toLowerCase().includes(searchText)
     );
+    
     setData(searchResult);
   };
 
@@ -79,7 +76,7 @@ export default function Home() {
       <h1>Abbreviation's for WFH</h1>
       <main>
         <div className="search">
-          <input type="text" placeholder="Search for abbreviation's here..." onKeyUp={onKeyUp} innerRef={inputRef} />
+          <input type="text" placeholder="Search here..." onKeyUp={onKeyUp} innerRef={inputRef} />
         </div>
         <div className="list">
           <ul>
