@@ -1,20 +1,20 @@
-# Abbr's for people WFH  🏠
+## Abbr's for people WFH  🏠
 
 ### [Live](https://wfh-abbrs.vercel.app/)
 
-#### `Setup`
+#### Setup
 
 ```bash
 npm install
 ```
 
-#### `Development`
+#### Development
 
 ```bash
 npm run dev
 ```
 
-#### `Contributions`
+#### Contributions
 
 - If you wish to contribute to this repository, read the [contribution guide](./CONTRIBUTING.md) 😬.
 - And, if you like the repo, 🌟 it.
