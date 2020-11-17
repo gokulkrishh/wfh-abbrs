@@ -1,1 +1,14 @@
-{ "abbr": "Abbreviation", "type": "string", "desc": "Description for abbreviation", "type": "string" }
+{ 
+  "type": "object",
+  "required": ["abbr", "desc"],
+  "properties": {
+    "abbr": {
+      "type": "string",
+      "description": "Abbreviation",
+    },
+    "desc": {
+      "type": "string",
+      "description": "Description for the abbreviation",
+    }
+  }  
+}
