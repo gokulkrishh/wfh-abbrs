@@ -1,14 +1,21 @@
-{ 
-  "type": "object",
-  "required": ["abbr", "desc"],
-  "properties": {
-    "abbr": {
-      "type": "string",
-      "description": "Abbreviation",
-    },
-    "desc": {
-      "type": "string",
-      "description": "Description for the abbreviation",
-    }
-  }  
+{
+   "title": "Data json for the site",
+   "type":"object",
+   "required":["data"],
+   "properties":{
+      "data":{
+         "type":"array",
+        "required":["abbr","desc"],
+         "properties":{
+            "abbr":{
+               "type":"string",
+               "description":"Abbreviation"
+            },
+            "desc":{
+               "type":"string",
+               "description":"Description for the abbreviation"
+            }
+         }
+      }
+   }
 }
