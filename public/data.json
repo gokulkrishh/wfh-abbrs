@@ -63,6 +63,10 @@
     {
       "abbr": "IAM",
       "desc": "In a Meeting"
+    },
+    {
+     "abbr": "IMHO",
+     "desc": "In my humble opinion"
     }
   ]
 }

@@ -1,0 +1,27 @@
+{
+  "title": "Data json for the site",
+  "type": "object",
+  "required": [
+    "data"
+  ],
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "abbr",
+          "desc"
+        ],
+        "properties": {
+          "abbr": {
+            "type": "string"
+          },
+          "desc": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
